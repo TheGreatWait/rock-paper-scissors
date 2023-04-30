@@ -70,13 +70,4 @@ while (playerScore < maxScore && computerScore < maxScore) {
     console.log(`The score is ${playerScore} to ${computerScore}`);
 }
 
-
-
-
-// Add the score to the running score
-
-// Output the score for each round
-
-// Repeat until somebody has five points times
-
 // Output the winner at the end
