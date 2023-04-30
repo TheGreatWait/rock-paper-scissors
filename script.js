@@ -26,33 +26,52 @@ function getPlayerChoice() {
     //    Repeat if it is a bad choice
 }
 
-function playRockPaperScissors(computerSelection, playerSelection) {
+// Add the score to the running score
+function playGame(computerSelection, playerSelection) {
 
     if ((computerSelection === "Rock" && playerSelection === "Paper")
-    || (computerSelection === "Paper" && playerSelection === "Scissors")
-    || (computerSelection === "Scissors" && playerSelection === "Rock")) {
-        return `${playerSelection} beats ${computerSelection}! You Win!`;
-
-
+        || (computerSelection === "Paper" && playerSelection === "Scissors")
+        || (computerSelection === "Scissors" && playerSelection === "Rock")) {
+        return "Player Wins";
     } else if ((computerSelection === "Rock" && playerSelection === "Scissors")
     || (computerSelection === "Paper" && playerSelection === "Rock")
     || (computerSelection === "Scissors" && playerSelection === "Paper")) {
-        return `${computerSelection} beats ${playerSelection}! You lose!`;
+        return "Computer Wins";
 
     } else if (computerSelection === playerSelection) {
-        return "Tie game!"
+        return "Tie"
     } else {
         return "You did not enter correctly. No game."
     }
 }
 
-let computerChoice = getComputerChoice();
-let playerChoice = getPlayerChoice();
+let playerScore = 0;
+let computerScore = 0;
+const maxScore = 5;
 
-console.log(computerChoice + " vs. " + playerChoice);
+while (playerScore < maxScore && computerScore < maxScore) {
+    let computerChoice = getComputerChoice();
+    let playerChoice = getPlayerChoice();
+
+    console.log(`The player chose ${playerChoice} and the computer chose ${computerChoice}.`);
+    switch (playGame(computerChoice, playerChoice)) {
+        case ("Player Wins"):
+            playerScore += 1;
+            console.log(`Player Wins! ${playerChoice} beats ${computerChoice}!`);
+            break
+        case ("Computer Wins"):
+            computerScore += 1;
+            console.log(`Computer Wins :(. ${computerChoice} beats ${playerChoice}.`);
+            break
+        case "Tie":
+            console.log("Tie game.");
+            break
+    }
+    console.log(`The score is ${playerScore} to ${computerScore}`);
+}
 
 
-console.log(playRockPaperScissors(computerChoice, playerChoice));
+
 
 // Add the score to the running score
 
