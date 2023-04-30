@@ -70,4 +70,4 @@ while (playerScore < maxScore && computerScore < maxScore) {
     console.log(`The score is ${playerScore} to ${computerScore}`);
 }
 
-// Output the winner at the end
+(playerScore > computerScore) ? alert("The Player Wins!") : alert("The Computer Wins :(.");
